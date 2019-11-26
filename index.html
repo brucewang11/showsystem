@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="dist/echarts.js"></script>
+
+</head>
+<style type="text/css">
+
+  .rect1{
+    /* border-style:solid;
+   border-color:#ff0000; */
+    background: linear-gradient(to left,rgba(255,255,255,0.11) ,rgba(255,255,255,0.11)) left top no-repeat,
+       linear-gradient(to bottom, rgba(255,255,255,0.11) ,rgba(255,255,255,0.11)) left top no-repeat,
+       linear-gradient(to left, rgba(255,255,255,0.11) ,rgba(255,255,255,0.11)) right top no-repeat,
+       linear-gradient(to bottom, rgba(255,255,255,0.11) ,rgba(255,255,255,0.11)) right top no-repeat,
+       linear-gradient(to left, rgba(255,255,255,0.11) ,rgba(255,255,255,0.11)) left bottom no-repeat,
+       linear-gradient(to bottom, rgba(255,255,255,0.11) ,rgba(255,255,255,0.11)) left bottom no-repeat,
+       linear-gradient(to left, rgba(255,255,255,0.11) ,rgba(255,255,255,0.11)) right bottom no-repeat,
+       linear-gradient(to left, rgba(255,255,255,0.11) ,rgba(255,255,255,0.11)) right bottom no-repeat;
+       background-size: 4px 100%, 100% 4px, 4px 100%, 100% 4px;
+       border-radius:5px 5px 5px 5px;
+  }
+          .rect{
+            /* border-style:solid;
+           border-color:#ff0000; */
+            background: linear-gradient(to left, #AF71BF, #AF71BF) left top no-repeat,
+               linear-gradient(to bottom, #AF71BF, #AF71BF) left top no-repeat,
+               linear-gradient(to left, #AF71BF, #AF71BF) right top no-repeat,
+               linear-gradient(to bottom, #AF71BF, #AF71BF) right top no-repeat,
+               linear-gradient(to left, #AF71BF, #AF71BF) left bottom no-repeat,
+               linear-gradient(to bottom, #AF71BF, #AF71BF) left bottom no-repeat,
+               linear-gradient(to left, #AF71BF, #AF71BF) right bottom no-repeat,
+               linear-gradient(to left, #AF71BF, #AF71BF) right bottom no-repeat;
+               background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px;
+               border-radius:5px 5px 5px 5px;
+          }
+
+          * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+       html,
+       body {
+           width: 100%;
+           height: 100%;
+           background-color:#000;
+       }
+       .mine_address{
+         background: -webkit-linear-gradient(to right,rgba(29, 23,39,0.2), rgb(231,110,160)) ; /* Safari 5.1 - 6.0 */
+          background: -o-linear-gradient(to right,rgba(29, 23,39,0.2),  rgb(231,110,160)); /* Opera 11.1 - 12.0 */
+          background: -moz-linear-gradient(to right,rgba(29, 23,39,0.2),  rgb(231,110,160)); /* Firefox 3.6 - 15 */
+          background: linear-gradient(to right,rgba(29, 23,39,0.2),  rgb(231,110,160)) ; /* 标准的语法 */
+          width:90%;
+          height:15%;
+          margin:0 auto;
+          margin-top:2%;
+          text-align:center;
+          padding-top:2%;
+          color:#fff;
+       }
+       .net_message{
+
+          background: linear-gradient(to right,rgb(61,50,95),  rgb(231,73,167)); /* 标准的语法 */
+          background-repeat: no-repeat;
+          width:90%;
+          height:10%;
+          margin:0 auto;
+          margin-top:4%;
+          text-align:center;
+          color:#fff;
+           font-weight:bold;
+           font-size:1em;
+
+       }
+       .title {
+       background-image: -webkit-linear-gradient(bottom,rgb(44,190,255), rgb(144, 107, 179));
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+       text-align:center;
+         font-weight:bold;
+         font-size:1.3em;
+   }
+
+  .show_num_border{
+      border-radius: 5px;
+      border-style:solid;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, .11);
+  }
+   .trapezoid{
+      background-image: -webkit-linear-gradient(bottom,rgb(228,76,170), rgba(0, 0, 0,0.1));
+        width:50%;
+        height:80%;
+        color:#fff;
+        font-size:2em;
+        font-weight: bold;
+        text-align: center;
+        margin: 0 auto;
+  }
+  .show_num{
+    width:100%;
+    height:30%;
+    color:#fff;
+    font-size:1.6em;
+    margin-top:10%;
+    font-family:fantasy;
+    font-weight:bold;
+  }
+
+
+     </style> <body>
+  <!-- 上边布局 -->
+  <div style="width:100%;height:15%;margin:0 auto;padding-top:3%;">
+    <div id="datetime" style="float:left;color:#fff;height:80%;width:20%;padding:2% 0 0 3%;font-size:1.5em;">2019-09-10-15:39</div>
+        <div class="trapezoid" ><img src="pic/zkyc.png">   中 科 云 创 F i l e c o i n 数 据 中 心</div>
+  </div>
+
+    <div style="width:100%;height:80%;margin:0 auto;">
+          <!-- 左边布局 -->
+      <div style="width:30%;height:100%;float:left;margin-left:3%;">
+              <div style="width:100%;height:33.33%;padding:0% 0% 0% 0%;">
+
+                  <div class=" rect1" style="width:100%;height:100%;">
+                    <div class=" rect" style="width:100%;height:100%;padding:2%;">
+                      <div class="title" style="width:100%;height:15%">
+                            全 网 信 息
+                      </div>
+                      <div class="net_message" style="background-size:40%">
+                          <span style="float:left">326</span><span style="float:right">活动节点</span>
+                      </div>
+                      <div class="net_message" style="background-size:53%">
+                          <span style="float:left">32PB</span><span style="float:right">总算力</span>
+                      </div>
+                      <div class="net_message" style="background-size:28%">
+                                  <span style="float:left">0.16</span><span style="float:right">平均存储价格</span>
+                      </div>
+                      <div class="net_message" style="background-size:2%" >
+                                  <span style="float:left">2%</span><span style="float:right">网络使用率</span>
+                      </div>
+
+                    </div>
+                  </div>
+
+
+              </div>
+              <div style="width:100%;height:33.33%;padding:3% 0% 0% 0%;">
+
+                <!-- 设备信息 -->
+                  <div class=" rect1" style="width:100%;height:100%;">
+                    <div class="rect" style="width:100%;height:100%;padding:2%;">
+                    <div class="title" style="width:100%;height:15%">
+                          设 备 信 息
+                    </div>
+                      <div style="width:100%;height:85%;">
+                          <div id="machine_use_rate" style="width:33%;height:100%;float:left;" >
+
+                          </div>
+                          <div id="store_use_rate" style="width:33%;height:100%;float:left;" >
+
+                          </div>
+                          <div id = "power_use_rate" style="width:33%;height:100%;float:left;" >
+
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+              </div>
+              <div style="width:100%;height:33.33%;padding:3% 0% 0% 0%;">
+                  <div class=" rect1" style="width:100%;height:100%;">
+                    <div class="rect" style="width:100%;height:100%;text-align:center;padding:2%;">
+                      <div class="title"  style="width:100%;height:33%">
+                            链 上 信 息
+                      </div>
+                      <div class="mine_address">
+                          fdsafsafdsafsaffasfsdafsa
+                      </div>
+                      <div class="mine_address" >
+
+                      </div>
+                      <div class="mine_address" >
+
+                      </div>
+                    </div>
+                  </div>
+
+              </div>
+              <!-- <div class="rect" style="width:100%;height:33.33%;background:e23;"></div> -->
+
+
+      </div>
+      <!-- 中间布局 -->
+        <div style="width:34%;height:100%;float:left;">
+
+          <div style="width:25%;height:25%;float:left;margin-left:4%;">
+            <div class="title"  style="width:100%;height:33%;text-align:center;font-size:1.1em;">
+                  挖 到 F I L 数 量
+            </div>
+            <div class="show_num_border" style="width:100%;height:40%;text-align:center;">
+                  <div class="show_num">16408</div>
+            </div>
+          </div>
+
+          <div style="width:25%;height:25%;float:left;margin-left:8.5%;">
+            <div class="title"  style="width:100%;height:33%;text-align:center;font-size:1.1em;">
+                  拥 有 存 力（TB）
+            </div>
+            <div class="show_num_border" style="width:100%;height:40%;text-align:center;">
+                  <div class="show_num">16408</div>
+            </div>
+          </div>
+
+          <div style="width:25%;height:25%;float:right;margin-right:4%;">
+            <div class="title"  style="width:100%;height:33%;text-align:center;font-size:1.1em;">
+                  爆 块 数 量
+            </div>
+            <div class="show_num_border" style="width:100%;height:40%;text-align:center;">
+                  <div  class="show_num">16408</div>
+            </div>
+          </div>
+
+        </div>
+          <!-- 右边布局 -->
+              <div style="width:30%;height:100%;float:right;margin-right:3%;">
+
+                <div style="width:100%;height:60%;padding:0% 0% 3% 0%;">
+                    <div class=" rect1" style="width:100%;height:100%;">
+                      <div class="rect" style="width:100%;height:100%;padding-top:2%;">
+                        <div class="title"  style="width:100%;height:10%">
+                              矿 池 信 息
+                        </div>
+                        <div id="mine_address" style="width:90%;height:60%;">
+
+                        </div>
+                        <div class="show_num_border" style="width:35%;height:25%;float:left;margin-left:10%;text-align:center;">
+                            <div style="width:100%;height:20%;color:#fff;font-size:1em;margin-top:10%;">平均每T产出FIL量</div>
+                              <div style="width:100%;height:30%;color:#fff;font-size:1.6em;margin-top:10%;font-family:fantasy;font-weight:bold;">164</div>
+                        </div>
+                          <div  class="show_num_border"  style="width:35%;height:25%;float:right;margin-right:10%;text-align:center;">
+                            <div style="width:100%;height:20%;color:#fff;font-size:1em;margin-top:10%;">平均每T产出价值</div>
+                              <div style="width:100%;height:30%;color:#fff;font-size:1.6em;margin-top:10%;font-family:fantasy;font-weight:bold;">5477.6</div>
+                          </div>
+                      </div>
+                    </div>
+
+                </div>
+
+                <div style="width:100%;height:40%;">
+                      <div class=" rect1" style="width:100%;height:100%;">
+                            <div class="rect" style="width:100%;height:100%;padding-top:2%;">
+                              <div class="title"  style="width:100%;height:10%">
+                                    F I L 期货
+                              </div>
+                              <div id="fil_future" style="width:90%;height:85%;">
+
+                              </div>
+
+                            </div>
+                      </div>
+
+                </div>
+
+
+
+              </div>
+    </div>
+
+
+
+        <script src="js/pie.js"></script>
+        <script src="js/mine_message.js"></script>
+        <script src="js/fil_futures.js"></script>
+              <script src="js/time.js"></script>
+
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+
+</body>
+</html>
